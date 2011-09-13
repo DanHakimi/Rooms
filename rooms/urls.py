@@ -1,17 +1,20 @@
 from django.conf.urls.defaults import patterns, include, url
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.shortcuts import render_to_response
+from django.template import RequestContext
 
-# Uncomment the next two lines to enable the admin:
-# from django.contrib import admin
-# admin.autodiscover()
 
-urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'rooms.views.home', name='home'),
-    # url(r'^rooms/', include('rooms.foo.urls')),
+def static_view(request, path):
+    """
+    serve pages directly from the templates directories.
+    """
+    if not path or path.endswith("/"):
+        template_name = path + "index.html"
+    else:
+        template_name = path
+    ctx = RequestContext(request)
+    return render_to_response(template_name, ctx)
 
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
+urlpatterns = staticfiles_urlpatterns() + patterns('',
+    url(r"^(?P<path>.*)$", static_view),
 )
