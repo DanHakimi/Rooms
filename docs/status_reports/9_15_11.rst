@@ -1,0 +1,35 @@
+September 15th, 2011
+====================
+
+Progress
+--------
+
+*Since last status update (this is the first status update)*
+
+* We created a git repository.
+* We checked in some basic code.
+* We created a documentation directory in which to store documentation and
+  status reports.
+* We automated deployments using ``ep.io``.
+* We set up a github repository on which to mirror our code for public viewing,
+  and use for tracking tickets.
+* Communicated with Student Union system administrators about reserving a
+  domain for the finished project.
+
+Coding styles
+-------------
+
+* Python: `PEP8`_
+* Javascript: `Douglas Crockford's style guide`_
+
+
+.. _PEP8: http://www.python.org/dev/peps/pep-0008/
+.. _Douglas Crockford's style guide: http://javascript.crockford.com/code.html
+
+TODO
+----
+
+* Start on designs/mock ups.
+* Flush out the data model.
+* Investigate if GIS is appropriate for storing room locations on a map.
+* Make sure our 4th member, who missed the meeting, is up to speed.

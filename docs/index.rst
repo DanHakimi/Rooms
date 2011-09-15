@@ -11,6 +11,8 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
+   status_reports/index
+
 Indices and tables
 ==================
 
