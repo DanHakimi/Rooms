@@ -15,6 +15,7 @@ This is the first status update.
   and use for tracking tickets.
 * Communicated with Student Union system administrators about reserving a
   domain for the finished project.
+* Selected Django and Python.
 
 Coding styles
 -------------
