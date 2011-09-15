@@ -4,7 +4,7 @@ September 15th, 2011
 Progress
 --------
 
-*Since last status update (this is the first status update)*
+This is the first status update.
 
 * We created a git repository.
 * We checked in some basic code.
