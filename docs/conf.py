@@ -41,7 +41,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Campus Room Project'
-copyright = u'2011, Curtis Keilty'
+copyright = u'2011, Curtis Keilty, Mark Dube, Alex Gaynor, Dan Hakimi'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -212,5 +212,5 @@ latex_documents = [
 # (source start file, name, description, authors, manual section).
 man_pages = [
     ('index', 'campusroomproject', u'Campus Room Project Documentation',
-     [u'Curtis Keilty'], 1)
+     [u'Curtis Keilty, Mark Dube, Alex Gaynor, Dan Hakimi'], 1)
 ]
