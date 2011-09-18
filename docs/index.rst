@@ -11,6 +11,7 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
+   grading_criteria
    status_reports/index
 
 Indices and tables
