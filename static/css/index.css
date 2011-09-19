@@ -8,5 +8,6 @@ nav ul li{
 }
 
 nav ul li a{
-	text-decoration:none
+	text-decoration:none;
+	margins: 0 1em 0 1em;
 }
