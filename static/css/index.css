@@ -5,6 +5,7 @@ nav ul{
 
 nav ul li{
 	float: left;
+	display:block;
 }
 
 nav ul li a{
