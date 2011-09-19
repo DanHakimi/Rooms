@@ -5,9 +5,10 @@ nav ul{
 
 nav ul li{
 	float: left;
+	display:block;
 }
 
 nav ul li a{
 	text-decoration:none;
-	margins: 0 8px 0 8px;
+	margin: 0 8px 0 8px;
 }
