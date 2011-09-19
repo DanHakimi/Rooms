@@ -37,5 +37,5 @@ And now you'll be able to run a local development server with::
 
     $ python rooms_project/manage.py runserver
 
-And if you visit `http://localhost:8000/`_ in your browser, it'll have the site
-up.
+And if you visit `<http://localhost:8000/>` in your browser, it'll have the
+site up.
