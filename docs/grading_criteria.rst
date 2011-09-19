@@ -25,6 +25,7 @@ current ideas are:
   * No credit: Didn't help other teammates, or failed to contributed to shared
     tasks.
 * Communication.
+
   * Full credit: Let teammates know of their current status.
   * No credit: Failed to inform teammates of their progress on milestones, or
     e.g. missed meetings.
