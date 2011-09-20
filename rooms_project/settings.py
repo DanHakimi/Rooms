@@ -117,6 +117,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'fixture_generator',
+
     'rooms_project.rooms',
 ]
 
