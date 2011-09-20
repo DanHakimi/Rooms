@@ -23,11 +23,17 @@ current ideas are:
 
 * Involvement in team education
 
-  * 25 points: Team member constantly helped teammates learn and understand new concepts as they arose. Assisted toward the breadth of the learning experience, by adding new insights.
-  * 20 points: Team member had helpful and interesting insights that promoted understanding, but only a little.
-  * 15 points: Lessons could be learned from this team member, but were not necessarily volunteered.
-  * 10 points: This team member's work was there, and was simple enough to understand, and did not impediment the learning process.
-  * 0 points: Listening to this team member speak made you feel stupider. That is all.
+  * 25 points: Team member constantly helped teammates learn and understand new
+    concepts as they arose. Assisted toward the breadth of the learning
+    experience, by adding new insights.
+  * 20 points: Team member had helpful and interesting insights that promoted
+    understanding, but only a little.
+  * 15 points: Lessons could be learned from this team member, but were not
+    necessarily volunteered.
+  * 10 points: This team member's work was there, and was simple enough to
+    understand, and did not impediment the learning process.
+  * 0 points: Listening to this team member speak made you feel stupider. That
+    is all.
 
 * Communication.
 
