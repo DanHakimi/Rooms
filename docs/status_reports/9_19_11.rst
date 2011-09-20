@@ -1,0 +1,26 @@
+September 19th, 2011
+====================
+
+What we did
+-----------
+
+* Documentation is automatically placed online with every commit.
+* Created a document that describes setting up a development environment.
+* Started on the design skeleton.
+
+Scary things
+------------
+
+* No sign of Curtis.
+* The SysAdmins aren’t willing to sustain a Django project long term.
+* Dan likes to make quick, small tweaks. This does not work very smoothly with
+  the commit/push/pull/build pattern. Alex has a plan for this. Also, there
+  might be some lighter tweaks happening in the Chrome Dev Tools.
+
+Plan for Next Week
+------------------
+
+* Flesh out the design skeleton some more.
+* Find out what happened to Curtis.
+* Finish data model (including figuring out GIS stuff)
+* Write that pitch
