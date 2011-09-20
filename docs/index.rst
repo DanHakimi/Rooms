@@ -13,7 +13,7 @@ Contents:
 
    grading_criteria
    status_reports/index
-   development/setting_up_enviroment
+   development/index
 
 Indices and tables
 ==================
