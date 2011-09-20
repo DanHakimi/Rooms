@@ -13,6 +13,10 @@ class Floor(models.Model):
 
 class Room(models.Model):
     floor = models.ForeignKey(Floor, related_name="rooms")
+    capacity = models.IntegerField(
+        null=True, blank=True,
+        help_text="Number of people the room can hold."
+    )
 
     name = models.CharField(
         max_length=100,
