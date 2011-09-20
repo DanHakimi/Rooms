@@ -3,7 +3,8 @@
     <head>
         <title>Rooms -- Index {in progress}</title>
         <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/index.css" ></link>
-        <script type="text/javascript" src="{{ STATIC_URL }}js/test.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}js/init.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     </head>
     <body>
     	<header>
@@ -17,10 +18,17 @@
 		    </nav>
         </header>
         <br/><br/>
-
-        <p>Rooms helps you reserve venues. That's it.</p>
-        <p>Small change.</p>
-
+		<div id="home">
+		    <p>Rooms helps you reserve space. That's it.</p>
+		    <p>This is the index page. <a href="#reserve">Reserve space&gt;&gt;</a></p>
+		</div>
+		<div id="browse" class="hidden">
+		    <p>This is one venue.</p>
+		    <p>This is another venue.</p>
+		</div>
+		<div id="inbox" class="hidden">
+		    <p>You got that room you wanted! OR: Hey, this person wants a room!</p>
+		</div>
         <footer>
         	<p>Created by <a href="http://danhakimi.com">Daniel Hakimi</a>, Alex Gaynor, Mark Dube and Curtis Kellty.</p>
         </footer>
