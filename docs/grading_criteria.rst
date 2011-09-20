@@ -6,26 +6,28 @@ current ideas are:
 
 * Participation in group meetings.
 
-  * Full credit: Attended most meetings and participated in them.
-  * 3/4 credit: Attended most meetings and was sometimes involved.
-  * Half credit: Attended some to most meetings and was sometimes involved.
-  * 1/4 credit: Attended a few meetings, was rarely involved.
-  * No credit: Missed almost all meetings or was rarely involved.
+  * 25 points: Attended most meetings and participated in them.
+  * 20 points: Attended most meetings and was sometimes involved.
+  * 15 points: Attended some to most meetings and was sometimes involved.
+  * 5 points: Attended a few meetings, was rarely involved.
+  * 0 points: Missed almost all meetings or was rarely involved.
 
 * Getting work done, both in terms of programming as well as any other tasks
   that are a part of the project.
 
-  * Full credit: Completed almost all work, well.
-  * 3/4 credit: Completed most of their work, in an adequate fashion.
-  * Half credit: Completed some of their work, in a mediocre fashion.
-  * 1/4 credit: Rarely completed their work, in a sub-standard fashion.
-  * No credit: Almost never completed their work, or was of very poor quality.
+  * 25 points: Completed almost all work, well.
+  * 20 points: Completed most of their work, in an adequate fashion.
+  * 10 points: Completed some of their work, in a mediocre fashion.
+  * 5 points: Rarely completed their work, in a sub-standard fashion.
+  * 0 points: Almost never completed their work, or was of very poor quality.
 
-* Worked with other team members.
+* Involvement in team education
 
-  * Full credit: Assisted other teammates, and worked with them on shared tasks.
-  * No credit: Didn't help other teammates, or failed to contributed to shared
-    tasks.
+  * 25 points: Team member constantly helped teammates learn and understand new concepts as they arose. Assisted toward the breadth of the learning experience, by adding new insights.
+  * 20 points: Team member had helpful and interesting insights that promoted understanding, but only a little.
+  * 15 points: Lessons could be learned from this team member, but were not necessarily volunteered.
+  * 10 points: This team member's work was there, and was simple enough to understand, and did not impediment the learning process.
+  * 0 points: Listening to this team member speak made you feel stupider. That is all.
 
 * Communication.
 
