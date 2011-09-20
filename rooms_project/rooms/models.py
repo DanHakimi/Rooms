@@ -10,6 +10,7 @@ class Floor(models.Model):
         max_length=100,
         help_text="For most buildings, the floors are just named by their number",
     )
+    map_imp = models.ImageField(upload_to="maps/")
 
 class Room(models.Model):
     floor = models.ForeignKey(Floor, related_name="rooms")
@@ -21,4 +22,8 @@ class Room(models.Model):
     name = models.CharField(
         max_length=100,
         help_text="The name of the room, for many rooms this is just the number.",
+    )
+    nickname = models.CharField(
+        max_length=255,
+        help_text="Optional nickname field, e.g. Union 3606 is Shellnut Gallary"
     )
