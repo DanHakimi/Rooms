@@ -120,6 +120,7 @@ INSTALLED_APPS = [
     'fixture_generator',
 
     'rooms_project.rooms',
+    'rooms_project.reservations',
 ]
 
 # A sample logging configuration. The only tangible logging
