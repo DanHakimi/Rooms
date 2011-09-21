@@ -99,8 +99,19 @@ MIDDLEWARE_CLASSES = [
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+
+    'rooms_project.cas_auth.middleware.CASMiddleware',
+]
+
+TEMPLATE_CONTEXT_PROCESSORS = [
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.contrib.messages.context_processors.messages',
+
+    'rooms_project.cas_auth.context_processors.cas_context_processor',
 ]
 
 ROOT_URLCONF = 'rooms_project.urls'
@@ -110,7 +121,6 @@ TEMPLATE_DIRS = [
 ]
 
 INSTALLED_APPS = [
-    'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
@@ -119,6 +129,7 @@ INSTALLED_APPS = [
 
     'fixture_generator',
 
+    'rooms_project.cas_auth',
     'rooms_project.rooms',
     'rooms_project.reservations',
 ]

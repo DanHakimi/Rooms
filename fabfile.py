@@ -7,3 +7,4 @@ def deploy():
     with lcd("docs"):
         local("make html")
     local("epio upload")
+    local("epio django syncdb")
