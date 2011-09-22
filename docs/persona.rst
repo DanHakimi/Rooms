@@ -7,7 +7,7 @@ and need to arrange for their club to hold meetings there on occasion. He
 doesn't have a fixed schedule, and needs the ability to register a room in a
 quick and easy process.
 
-Their goals for our application are:
+His goals for our application are:
 
 * To see when rooms are available.
 * To register a room.
