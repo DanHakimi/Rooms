@@ -12,6 +12,7 @@ Contents:
    :maxdepth: 2
 
    grading_criteria
+   persona
    status_reports/index
    development/index
 
