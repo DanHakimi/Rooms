@@ -1,0 +1,29 @@
+September 22nd, 2011
+====================
+
+Accomplished this week
+----------------------
+
+* Integrated login system with RPI CAS
+* Fleshed out more of the data model
+* We reviewed the existing "system".
+* Discussed proposal.
+
+Problems
+--------
+
+* We seem to have lost Curtis entirely.
+
+Plans for next week
+-------------------
+
+* Continuing fleshing out data model
+* Barebones UI
+* Start on proposal.
+
+Pitch
+-----
+
+We are building a system for managing registrations of rooms on campus.  It is
+a significant improvement over the existing system because it has a simplified
+workflow, and better organizational qualities for administrators.
