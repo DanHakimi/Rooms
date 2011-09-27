@@ -6,8 +6,12 @@ Accomplished this week
 
 * Wrote up draft of Inception Deliverable
 * Found Curtis and got him up to speed
-* 
-* 
+* Basic layout of site design for user
+* Inception Deliverable
+  * Vision Statement
+  * Use Cases
+  * Project Schedule
+  * Budget
 
 Problems
 --------
@@ -17,6 +21,5 @@ Problems
 Plans for next week
 -------------------
 
-* 
-* 
-* 
+* Get pictures of union floors for site
+* Finish login system
