@@ -8,6 +8,7 @@ Accomplished this week
 * Found Curtis and got him up to speed
 * Basic layout of site design for user
 * Inception Deliverable
+
   * Vision Statement
   * Use Cases
   * Project Schedule
