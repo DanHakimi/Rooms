@@ -17,7 +17,8 @@ Accomplished this week
 Problems
 --------
 
-* Integrating with the RPI CAS login causes users to leave our site, breaks our "no refresh" ideal.
+* Integrating with the RPI CAS login causes users to leave our site, breaks our
+  "no refresh" ideal.
 
 Plans for next week
 -------------------

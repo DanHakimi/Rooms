@@ -1,0 +1,14 @@
+Septmber 29th, 2011
+===================
+
+What we did
+-----------
+
+* Completed inception
+* Completed images of union for room selection (top down)
+
+Plan for next week
+------------------
+
+* More development
+* More UI work (uploading images)
