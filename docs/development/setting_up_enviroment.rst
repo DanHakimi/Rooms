@@ -14,12 +14,12 @@ Now we're going to use pip to install ``virtualenv`` and ``virtualenvwrappers``,
 they're used to create isolated Python enviroments on your system. This is
 useful if you have multiple projects (it lets you have multiple versions of the
 same dependency), but also just to ensure you're always working with the right
-packages.
+packages::
 
     $ sudo pip install virtualenv virtualenvwrapper
 
 Now you'll need to create an enviroment for the project, I called mine
-``sdd-code``, you can name it whatever you like:
+``sdd-code``, you can name it whatever you like::
 
     $ mkvirtualenv sdd-code
 
