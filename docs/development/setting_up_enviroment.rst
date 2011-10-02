@@ -1,8 +1,8 @@
 Setting up a Development Enviroment
 ===================================
 
-These documents assume you are running on Ubuntu, if you aren't ask us, we'll
-come up with seperate instructions for your platform.
+These documents assume you are running on Ubuntu. If you aren't, ask us, and 
+we'll come up with seperate instructions for your platform.
 
 First, you'll need to install ``pip``, a Python installer::
 
@@ -23,9 +23,9 @@ Now you'll need to create an enviroment for the project, I called mine
 
     $ mkvirtualenv sdd-code
 
-This will create the environment, and also activate it for your current
-terminal, when you create new terminal session to work on this, you'll need to
-re-activate it with::
+This will create the environment, and will also activate it for your current
+terminal session. When you create new terminal session to work on this, you'll 
+need to re-activate it with::
 
     $ workon sdd-code
 
@@ -37,5 +37,4 @@ And now you'll be able to run a local development server with::
 
     $ python rooms_project/manage.py runserver
 
-And if you visit http://localhost:8000 in your browser, it'll have the
-site up.
+Now just visit http://localhost:8000 in your browser. Enjoy!
