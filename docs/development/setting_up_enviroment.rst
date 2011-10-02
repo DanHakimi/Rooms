@@ -18,6 +18,13 @@ packages::
 
     $ sudo pip install virtualenv virtualenvwrapper
 
+``virtualenvwrapper`` has several bash scripts that you'll need to make sure
+get loaded by your bash enviroment, to do this run::
+
+    $ echo "source /usr/local/bin/virtualenvwrapper.sh" >> ~/.bashrc
+
+and restart your terminal.
+
 Now you'll need to create an enviroment for the project, I called mine
 ``sdd-code``, you can name it whatever you like::
 
