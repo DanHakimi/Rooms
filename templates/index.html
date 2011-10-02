@@ -3,30 +3,31 @@
     <head>
         <title>Rooms -- Index {in progress}</title>
         <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/index.css" ></link>
-        <script type="text/javascript" src="{{ STATIC_URL }}js/init.js"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}js/init.js"></script>
+        
     </head>
     <body>
     	<header>
 		    <h1>Rooms</h1>
 		    <nav>
 		    	<ul>
-		    		<li><a href="#home">Home</a></li>
-		    		<li><a href="#browse">Browse Venues</a></li>
-		    		<li><a href="#inbox">Inbox</a></li>
+		    		<li><a href="#home"		id="homelink">		Home			</a></li>
+		    		<li><a href="#browse"	id="browselink"> 	Browse Venues	</a></li>
+		    		<li><a href="#inbox"	id="inboxlink">		Inbox			</a></li>
 		    	</ul>
 		    </nav>
         </header>
         <br/><br/>
-		<div id="home">
+		<div id="home"		class="page" >
 		    <p>Rooms helps you reserve space. That's it.</p>
 		    <p>This is the index page. <a href="#reserve">Reserve space&gt;&gt;</a></p>
 		</div>
-		<div id="browse" class="hidden">
+		<div id="browse"	class="page hidden" >
 		    <p>This is one venue.</p>
 		    <p>This is another venue.</p>
 		</div>
-		<div id="inbox" class="hidden">
+		<div id="inbox"		class="page hidden" >
 		    <p>You got that room you wanted! OR: Hey, this person wants a room!</p>
 		</div>
         <footer>
