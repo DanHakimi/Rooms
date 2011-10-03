@@ -6,6 +6,13 @@ What we did
 
 * Completed inception
 * Working Javascript menus
+* Got Dan's local development enviroment set up.
+* Updated documentation to better reflect teh setup process.
+
+Scary things
+------------
+
+* Curtis is sick.
 
 Plan for next week
 ------------------
