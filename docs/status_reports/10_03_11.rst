@@ -1,0 +1,13 @@
+October 3rd, 2011
+=================
+
+What we did
+-----------
+
+* Completed inception
+* Working Javascript menus
+
+Plan for next week
+------------------
+
+* Coding
