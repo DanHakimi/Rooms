@@ -1,4 +1,4 @@
-function home () {
+/*function home () {
 	console.log("home");
 	$("#browse").hide();
 	$("#inbox").hide();
@@ -22,3 +22,10 @@ function readyFunction (){
 	$("#inboxlink").click( inbox );
 }
 jQuery( readyFunction );
+*/
+$(document).ready(function(){
+	$("nav a").click(function(){
+		$(".page").hide();
+		$($(this).attr("href")).show();
+	});
+});
