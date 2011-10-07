@@ -13,11 +13,9 @@ def static_view(request, path):
     else:
         template_name = path
     ctx = RequestContext(request)
-    if path.endswith("css"):
-	return render_to_response(template_name, ctx, mimetype="text/css")
     return render_to_response(template_name, ctx)
 
 urlpatterns = staticfiles_urlpatterns() + patterns('',
     url(r"^user/", include("rooms_project.cas_auth.urls")),
-    url(r"^(?P<path>.*)$", static_view),
+    url(r"^(?P<path>.*)$", static_view)
 )
