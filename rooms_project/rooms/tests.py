@@ -60,3 +60,29 @@ class RoomViewTests(TestCase):
                 },
             ],
         })
+
+    def test_floor_detail(self):
+        self.get("api_v1_floor_detail", building_pk=12, floor_pk=3, status_code=404)
+
+        b = Building.objects.create(name="The Union")
+        self.get("api_v1_floor_detail", building_pk=b.pk, floor_pk=12, status_code=404)
+
+        floor = b.floors.create(name="Third Floor")
+        room = floor.rooms.create(
+            name="3606",
+            nickname="Shellnut Gallery",
+        )
+
+        response = self.get("api_v1_floor_detail", building_pk=b.pk, floor_pk=floor.pk)
+        self.assertEqual(json.loads(response.content), {
+            "name": "Third Floor",
+            "id": floor.pk,
+            "rooms": [
+                {
+                    "id": room.pk,
+                    "name": "3606",
+                    "nickname": "Shellnut Gallery",
+                    "capacity": None,
+                }
+            ],
+        })
