@@ -1,3 +1,6 @@
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:100,regular,regularitalic,bold,bolditalic);
+
+h1 { font: 64px "Josefin Sans", Sans-Serif; }
 
 nav ul{
 	float: right;
