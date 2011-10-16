@@ -109,7 +109,6 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     'django.core.context_processors.i18n',
     'django.core.context_processors.media',
     'django.core.context_processors.static',
-    'django.contrib.messages.context_processors.messages',
 
     'rooms_project.cas_auth.context_processors.cas_context_processor',
 ]
@@ -121,10 +120,7 @@ TEMPLATE_DIRS = [
 ]
 
 INSTALLED_APPS = [
-    'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.sites',
-    'django.contrib.messages',
     'django.contrib.staticfiles',
 
     'fixture_generator',
