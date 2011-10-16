@@ -14,10 +14,6 @@ class Floor(models.Model):
 
 class Room(models.Model):
     floor = models.ForeignKey(Floor, related_name="rooms")
-    capacity = models.IntegerField(
-        null=True, blank=True,
-        help_text="Number of people the room can hold."
-    )
 
     name = models.CharField(
         max_length=100,
@@ -26,4 +22,10 @@ class Room(models.Model):
     nickname = models.CharField(
         max_length=255,
         help_text="Optional nickname field, e.g. Union 3606 is Shellnut Gallary"
+    )
+    description = models.TextField()
+
+    capacity = models.IntegerField(
+        null=True, blank=True,
+        help_text="Number of people the room can hold."
     )
