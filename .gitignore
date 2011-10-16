@@ -2,3 +2,4 @@
 _build
 static_root
 dev.db
+/nbproject/private/

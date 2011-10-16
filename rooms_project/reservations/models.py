@@ -1,5 +1,6 @@
 from django.db import models
 
+from rooms_project.cas_auth.models import CASUser
 from rooms_project.rooms.models import Room
 
 
@@ -20,5 +21,4 @@ class ReservationRequest(models.Model):
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
 
-    # TODO: requestor = models.ForeignKey() Django's User, or some sort of RPI
-    # user system
+    requester = models.ForeignKey(CASUser)

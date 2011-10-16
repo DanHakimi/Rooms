@@ -10,7 +10,7 @@ class Floor(models.Model):
         max_length=100,
         help_text="For most buildings, the floors are just named by their number",
     )
-    map_imp = models.ImageField(upload_to="maps/")
+    map_img = models.ImageField(upload_to="maps/")
 
 class Room(models.Model):
     floor = models.ForeignKey(Floor, related_name="rooms")
