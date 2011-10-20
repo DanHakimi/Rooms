@@ -122,6 +122,8 @@ TEMPLATE_DIRS = [
 INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.staticfiles',
+    
+    'django_extensions',
 
     'fixture_generator',
 
