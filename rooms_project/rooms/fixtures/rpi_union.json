@@ -1,0 +1,156 @@
+[
+    {
+        "pk": 1,
+        "model": "rooms.building",
+        "fields": {
+            "name": "The Union"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "rooms.floor",
+        "fields": {
+            "building": 1,
+            "map_img": "",
+            "name": "1st"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "rooms.floor",
+        "fields": {
+            "building": 1,
+            "map_img": "",
+            "name": "2nd"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "rooms.floor",
+        "fields": {
+            "building": 1,
+            "map_img": "",
+            "name": "3rd"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "rooms.room",
+        "fields": {
+            "capacity": 40,
+            "description": "Used for formal and informal meetings with groups of 40 or less and is equipped with tables, chairs, and pull down screen.  There are six network jacks, access to the food elevator and patio, and TV hookup.\nDimensions: 22' 3\" X 38' 3\"",
+            "floor": 3,
+            "image": "",
+            "nickname": "",
+            "name": "3202"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "rooms.room",
+        "fields": {
+            "capacity": 20,
+            "description": "Used for formal and informal meetings with groups of 20 or less and is equipped with tables, chairs, overhead, and pull down screen.  There are four network jacks and TV hookup.",
+            "floor": 3,
+            "image": "",
+            "nickname": "",
+            "name": "3502"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "rooms.room",
+        "fields": {
+            "capacity": 15,
+            "description": "Used for formal and informal meetings with groups of 15 or less and is equipped with tables, chairs.  There are six network jacks.",
+            "floor": 3,
+            "image": "",
+            "nickname": "",
+            "name": "3510"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "rooms.room",
+        "fields": {
+            "capacity": 20,
+            "description": "Used for formal and informal meetings with groups of 20 or less and is equipped with tables, chairs, and pull down screen.  There are four network jacks.",
+            "floor": 3,
+            "image": "",
+            "nickname": "",
+            "name": "3511"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "rooms.room",
+        "fields": {
+            "capacity": 40,
+            "description": "Used for formal and informal meetings with groups of 40 or less and is equipped with tables, chairs, and pull down screen.  There are 6 available network jacks.  Standard setup is auditorium style.\nDimensions: 25' 3\" X 36'\"",
+            "floor": 3,
+            "image": "",
+            "nickname": "",
+            "name": "3602"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "rooms.room",
+        "fields": {
+            "capacity": 40,
+            "description": "Used for formal and informal meetings with groups of 40 or less and is equipped with tables, chairs, and pull down screen.  There are 6 available network jacks.",
+            "floor": 3,
+            "image": "",
+            "nickname": "Shellnut Gallery",
+            "name": "3606"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "rooms.room",
+        "fields": {
+            "capacity": 25,
+            "description": "Used for formal and informal meetings with groups of 25 or less and is equipped with tables and chairs.  This room also features a private bathroom and lounge furniture, ideal for catering.  There are 6 available network jacks and TV hookup.",
+            "floor": 2,
+            "image": "",
+            "nickname": "",
+            "name": "2424"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "rooms.room",
+        "fields": {
+            "capacity": 500,
+            "description": "Used for formal meetings, concerts, and large events with groups of 250 or less with chairs and tables, groups of 300 with chairs only, or groups of 500 standing only.  Staging, lighting, and media equipment is available.  This room is ideal for catering large events.",
+            "floor": 2,
+            "image": "",
+            "nickname": "",
+            "name": "McNeil Room"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "rooms.room",
+        "fields": {
+            "capacity": 20,
+            "description": "Used for formal and informal meetings with groups of 20 or less and is equipped with tables and chairs. There is also a TV hookup.",
+            "floor": 2,
+            "image": "",
+            "nickname": "",
+            "name": "2124"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "rooms.room",
+        "fields": {
+            "capacity": 125,
+            "description": "Used for informal meetings, concerts, and large events with groups of 125 or less.  The room is equipped with chairs, tables, piano, stage, and lighting.  There are 17 network jacks and TV hookup.",
+            "floor": 1,
+            "image": "",
+            "nickname": "",
+            "name": "Mother's"
+        }
+    }
+]
