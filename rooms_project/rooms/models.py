@@ -24,6 +24,7 @@ class Room(models.Model):
         help_text="Optional nickname field, e.g. Union 3606 is Shellnut Gallary"
     )
     description = models.TextField()
+    image = models.ImageField(upload_to="rooms/")
 
     capacity = models.IntegerField(
         null=True, blank=True,
