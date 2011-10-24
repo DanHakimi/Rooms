@@ -7,7 +7,6 @@ Mirror to github with the following command:
 Deploy with (requires that you have everything in requirements.txt installed):
     fab deploy
 
-
 	
 README goes here ;)
 
