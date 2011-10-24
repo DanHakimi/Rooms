@@ -3,6 +3,6 @@ Sphinx==1.0.7
 epio==0.2.13
 Fabric==1.2.2
 
--e git://github.com/alex/django-fixture-generator.git#egg=fixture_generator
+git+git://github.com/alex/django-fixture-generator.git#egg=fixture_generator
 django-extensions==0.7.1
 
