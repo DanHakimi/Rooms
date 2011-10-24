@@ -52,9 +52,14 @@ def rpi_union():
         description="Used for formal meetings, concerts, and large events with groups of 250 or less with chairs and tables, groups of 300 with chairs only, or groups of 500 standing only.  Staging, lighting, and media equipment is available.  This room is ideal for catering large events."
     )
     second.rooms.create(
-        name="2124",
+        name="West Lobby",
         capacity=20,
-        description="Used for formal and informal meetings with groups of 20 or less and is equipped with tables and chairs. There is also a TV hookup."
+        description=""
+    )
+    second.rooms.create(
+        name="Welcome Lobby",
+        capacity=20,
+        description=""
     )
     first.rooms.create(
         name="Mother's",
