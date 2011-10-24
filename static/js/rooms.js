@@ -1,7 +1,19 @@
 $(document).ready(function(){
-	$.getJSON("/api/v1/building/",function(data){
+	$.getJSON("http://campus-rooms.ep.io/api/v1/building/",function(data){
 		for (var i=0; i < data.length; i++){
-			$("<h2>"+data[i]["name"]+"</h2>").appendTo("#container");
+			$("<div class='building'></div>")
+				.appendTo("#container")
+				.append("<img src='http://placehold.it/250x150'>")
+				.append($("<h2 id='b"+data[i]["id"]+"'>"+data[i]["name"]+"</h2>").click(function(){
+						$.getJSON("http://campus-rooms.ep.io/api/v1/building/"+data[i]["id"]+"/",function(data){
+							for (var i=0; i < data["floors"].length; i++){
+								$("<div class='floor' id='f"+data[i]["id"]+"'>"+data["floors"][i].name+"</div>").click(function(){
+									
+								});
+							}
+						}).appendTo($(this));
+					})
+				);
 		}
 	});
 });
