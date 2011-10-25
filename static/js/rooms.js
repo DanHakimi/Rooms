@@ -10,16 +10,20 @@ $(document).ready(function(){
 								if ($(".rooms",$(this)).children().length==0){
 									$.getJSON($(this).data("url"),function(floor_data){
 										for (var i=0; i<floor_data.rooms.length; i++){
-											$("<div class='room' id='b"+building_data.id+"f"+floor_data.id+"r"+floor_data.floors[i].id+"'><h4>"+floor_data.rooms[i].name+"</h4><div class='details'><p>Capactiy: "+floor_data.rooms[i].capacity+"</p></div></div>").hide().appendTo("#b"+building_data.id+"f"+floor_data.id+" .rooms");
+											$("<div class='room' id='b"+building_data.id+"f"+floor_data.id+"r"+floor_data.floors[i].id+"'><h4>"+floor_data.rooms[i].name+"</h4><div class='details'><p>Capactiy: "+floor_data.rooms[i].capacity+"</p></div></div>").hide().appendTo("#b"+building_data.id+"f"+floor_data.id+" .rooms").show(500);
 										}
 									});
+								} else {
+									$(".rooms",$(this)).children().toggle(500);
 								}
-								$(".rooms",$(this)).children().toggle(500);
-							}).hide().appendTo("#b"+building_data.id+" .floors");
+								return false;
+							}).hide().appendTo("#b"+building_data.id+" .floors").show(500);
 						}
 					});
+				} else {
+					$(".floors",$(this)).children().toggle(500);
 				}
-				$(".floors",$(this)).children().toggle(500);
+				return false;
 			}).appendTo("#buildings");
 		}
 	});
