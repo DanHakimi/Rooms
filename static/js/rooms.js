@@ -14,12 +14,12 @@ $(document).ready(function(){
 										}
 									});
 								}
-								$("#b"+building_data.id+"f"+floor_data.id+" .rooms").toggle(500);
+								$(".rooms",$(this)).children().toggle(500);
 							}).hide().appendTo("#b"+building_data.id+" .floors");
 						}
 					});
 				}
-				$("#b"+building_data.id+" .floors").toggle(500);
+				$(".floors",$(this)).children().toggle(500);
 			}).appendTo("#buildings");
 		}
 	});
