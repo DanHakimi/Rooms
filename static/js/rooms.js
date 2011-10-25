@@ -10,7 +10,7 @@ $(document).ready(function(){
 								if ($(".rooms",$(this)).children().length==0){
 									$.getJSON($(this).data("url"),function(floor_data){
 										for (var i=0; i<floor_data.rooms.length; i++){
-											$("<div class='room' id='b"+building_data.id+"f"+floor_data.id+"r"+floor_data.floors[i].id+"'><h4>"+floor_data.rooms[i].name+"</h4><div class='details'><p>Capactiy: "+floor_data.rooms[i].capacity+"</p></div></div>").hide().appendTo("#b"+building_data.id+"f"+floor_data.id+" .rooms").show(500);
+											$("<div class='room' id='b"+building_data.id+"f"+floor_data.id+"r"+floor_data.rooms[i].id+"'><h4>"+floor_data.rooms[i].name+"</h4><div class='details'><p>Capactiy: "+floor_data.rooms[i].capacity+"</p></div></div>").hide().appendTo("#b"+building_data.id+"f"+floor_data.id+" .rooms").show(500);
 										}
 									});
 								} else {
