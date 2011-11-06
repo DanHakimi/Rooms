@@ -21,4 +21,6 @@ class ReservationRequest(models.Model):
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
 
-    requester = models.ForeignKey(CASUser)
+    requester = models.ForeignKey(CASUser, related_name="room_requests")
+    reviewer = models.ForeignKey(CASUser, null=True, related_name="room_reviews",
+        help_text="The user who either accepted or rejected the request.")
