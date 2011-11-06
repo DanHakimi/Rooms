@@ -30,3 +30,6 @@ class Room(models.Model):
         null=True, blank=True,
         help_text="Number of people the room can hold."
     )
+
+    def __unicode__(self):
+        return self.name
