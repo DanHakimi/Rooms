@@ -32,7 +32,8 @@ class CAS(object):
         )
 
     def validate_ticket(self, ticket):
-        with contextlib.closing(urllib2.urlopen(self.get_validate_url(ticket))) as f:
+        url = self.get_validate_url(ticket)
+        with contextlib.closing(urllib2.urlopen(url)) as f:
             content = f.readlines()
         valid = content[0].strip() == "yes"
         info = {}
