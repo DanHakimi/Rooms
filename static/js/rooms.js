@@ -1,6 +1,6 @@
 var BASE_URL = "/api/v1/building/";
 $(document).ready(function(){
-	$.getJSON(BASE_URL,function(buildings_data){
+	$.getJSON( BASE_URL,function(buildings_data ){
 		for (var i=0; i < buildings_data.length; i++){
 			$("<div class='building' id='b"+buildings_data[i].id+"'><h2>"+buildings_data[i].name+"</h2><div class='floors'></div></div>").data("url",BASE_URL+buildings_data[i].id+"/").click(function(){
 				if ($(".floors",$(this)).children().length==0){
