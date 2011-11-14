@@ -8,7 +8,7 @@ from .models import Building
 def building_list(request):
     response = HttpResponse(mimetype="application/json")
     json.dump([
-        {"name": b.name, "id": b.pk}
+        b.to_json()
         for b in Building.objects.all()
     ], response)
     return response
@@ -16,26 +16,12 @@ def building_list(request):
 def building_detail(request, pk):
     building = get_object_or_404(Building, pk=pk)
     response = HttpResponse(mimetype="application/json")
-    json.dump({
-        "name": building.name,
-        "id": building.pk,
-        "floors": [
-            {"id": f.pk, "name": f.name}
-            for f in building.floors.all()
-        ],
-    }, response)
+    json.dump(building.to_json(), response)
     return response
 
 def floor_detail(request, building_pk, floor_pk):
     building = get_object_or_404(Building, pk=building_pk)
     floor = get_object_or_404(building.floors.all(), pk=floor_pk)
     response = HttpResponse(mimetype="application/json")
-    json.dump({
-        "name": floor.name,
-        "id": floor.pk,
-        "rooms": [
-            {"id": r.pk, "name": r.name, "nickname": r.nickname, "capacity": r.capacity}
-            for r in floor.rooms.all()
-        ]
-    }, response)
+    json.dump(floor.to_json(), response)
     return response

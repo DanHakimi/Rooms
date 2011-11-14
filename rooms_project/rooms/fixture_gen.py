@@ -37,7 +37,7 @@ def rpi_union():
     )
     third.rooms.create(
         name="3606",
-				nickname="Shellnut Gallery",
+    	nickname="Shellnut Gallery",
         capacity=40,
         description="Used for formal and informal meetings with groups of 40 or less and is equipped with tables, chairs, and pull down screen.  There are 6 available network jacks."
     )

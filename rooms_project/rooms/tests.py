@@ -21,10 +21,12 @@ class RoomViewTests(TestCase):
             {
                 "name": "Blitman Hall",
                 "id": b.pk,
+                "floors": [],
             },
             {
                 "name": "Quad",
                 "id": q.pk,
+                "floors": [],
             }
         ])
 
@@ -45,18 +47,22 @@ class RoomViewTests(TestCase):
                 {
                     "name": "First",
                     "id": f1.pk,
+                    "rooms": [],
                 },
                 {
                     "name": "Second",
                     "id": f2.pk,
+                    "rooms": [],
                 },
                 {
                     "name": "Third",
                     "id": f3.pk,
+                    "rooms": [],
                 },
                 {
                     "name": "Fourth",
                     "id": f4.pk,
+                    "rooms": [],
                 },
             ],
         })
@@ -83,6 +89,7 @@ class RoomViewTests(TestCase):
                     "name": "3606",
                     "nickname": "Shellnut Gallery",
                     "capacity": None,
+                    "description": "",
                 }
             ],
         })
