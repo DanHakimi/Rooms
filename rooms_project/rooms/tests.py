@@ -1,23 +1,15 @@
-from django.core.urlresolvers import reverse
-from django.test import TestCase
-from django.utils import simplejson as json
+from rooms_project.utils import BaseTestCase
 
 from .models import Building
 
 
-class RoomViewTests(TestCase):
-    def get(self, url_name, *args, **kwargs):
-        status_code = kwargs.pop("status_code", 200)
-        response = self.client.get(reverse(url_name, args=args, kwargs=kwargs))
-        self.assertEqual(response.status_code, status_code)
-        return response
-
+class RoomViewTests(BaseTestCase):
     def test_building_list_api(self):
         b = Building.objects.create(name="Blitman Hall")
         q = Building.objects.create(name="Quad")
 
         response = self.get("api_v1_building_list")
-        self.assertEqual(json.loads(response.content), [
+        self.assert_json_response(response, [
             {
                 "name": "Blitman Hall",
                 "id": b.pk,
@@ -40,7 +32,7 @@ class RoomViewTests(TestCase):
         ]
 
         response = self.get("api_v1_building_detail", pk=b.pk)
-        self.assertEqual(json.loads(response.content), {
+        self.assert_json_response(response, {
             "name": "Blitman Hall",
             "id": b.pk,
             "floors": [
@@ -80,7 +72,7 @@ class RoomViewTests(TestCase):
         )
 
         response = self.get("api_v1_floor_detail", building_pk=b.pk, floor_pk=floor.pk)
-        self.assertEqual(json.loads(response.content), {
+        self.assert_json_response(response, {
             "name": "Third Floor",
             "id": floor.pk,
             "rooms": [
