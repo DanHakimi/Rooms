@@ -16,7 +16,7 @@ class ReservationRequest(models.Model):
     ]
 
     status = models.IntegerField(choices=STATUS_CHOICES, default=UNREVIEWED)
-    room = models.ForeignKey(Room)
+    room = models.ForeignKey(Room, related_name="reservation_requests")
 
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
@@ -24,3 +24,13 @@ class ReservationRequest(models.Model):
     requester = models.ForeignKey(CASUser, related_name="room_requests")
     reviewer = models.ForeignKey(CASUser, null=True, related_name="room_reviews",
         help_text="The user who either accepted or rejected the request.")
+
+    def to_json(self):
+        return {
+            "id": self.id,
+            "status": self.status,
+            "room": self.room.to_json(),
+            "requestor": self.requester.to_json(),
+            "start_time": self.start_time.isoformat(),
+            "end_time": self.end_time.isoformat(),
+        }

@@ -19,7 +19,7 @@ class RoomViewTests(BaseTestCase):
                 "name": "Quad",
                 "id": q.pk,
                 "floors": [],
-            }
+            },
         ])
 
     def test_building_detail_api(self):

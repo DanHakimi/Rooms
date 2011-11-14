@@ -18,5 +18,6 @@ def static_view(request, path):
 urlpatterns = staticfiles_urlpatterns() + patterns('',
     url(r"^user/", include("rooms_project.cas_auth.urls")),
     url(r"", include("rooms_project.rooms.urls")),
+    url(r"", include("rooms_project.reservations.urls")),
     url(r"^(?P<path>.*)$", static_view),
 )

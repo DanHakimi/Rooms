@@ -1,4 +1,5 @@
 from django.core.urlresolvers import reverse
+from django.http import HttpResponse
 from django.test import TestCase
 from django.utils import simplejson as json
 
@@ -12,3 +13,8 @@ class BaseTestCase(TestCase):
 
     def assert_json_response(self, response, data):
         self.assertEqual(json.loads(response.content), data)
+
+def JSONResponse(obj):
+    response = HttpResponse(mimetype="application/json")
+    json.dump(obj, response)
+    return response
