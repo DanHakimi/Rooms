@@ -24,6 +24,10 @@ class CASMiddleware(object):
                 except KeyError:
                     pass
         elif "cas:user" in request.session:
-            request.user = CASUser.objects.get(pk=request.session["cas:user"])
+            try:
+                request.user = CASUser.objects.get(pk=request.session["cas:user"])
+            except CASUser.DoesNotExist:
+                del request.session["cas:user"]
+                request.user = None
         else:
             request.user = None
