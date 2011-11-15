@@ -8,27 +8,67 @@ function bindButtons()
 	});
 }
 
-function addVenues( venues )
-{ /*
+function createNavigateToFunction( venue )
+{
+	/* Returns a function with the following specifications:
+		 * If it ( $(this) ) has sub-venues ( Building -> Floor -> Room or Building -> Room ),
+		 * navigateTo hides the current browse set, and goes down a level.
+		 * If it is reservable in and of itself, navigateTo hides the current 
+		 * browse set, and shows the room page. */
+	
+	return ( function(){
+		/* Note that this function is an onclick function.
+			and that "this" refers to the div being clicked */
+		if( $(this).floors )
+		{
+		}
+		else if( venues[i].rooms )
+		{
+		}
+	});
+}
+
+function addVenues( venues, parent ="" ) // I can't do that. There are
+{									// Two potential solutions. The one
+									// I have to employ involves currying.
 		var roomtext = "";
+		
 		for( i in venues )
 		{
-			roomtext = "<div class=\"grid_4\"> <div class=\"roomblock\"> <p>" +
-				//You'd put a description here. +
-				"</p> </div></div>"
-			// Then, you bind the proper click function. Something like .click( navigateTo )
-			// If it ( $(this) ) has sub-venues ( Building -> Floor -> Room or Building -> Room ),
-			// navigateTo hides the current browse set, and goes down a level.
-			// If it is reservable in and of itself, navigateTo hides the current 
-			// browse set, and shows the room page.
+			name = venues[i].name;
+			if ( parent )
+			{ id = parent + "_" + venues[i].id; }
+			else
+			{ id = venues[i].id; }
+			
+			description = ""
+			if(venues[i].description)
+			{ description = venues[i].description; }
+			
+			roomtext = "<div class=\"grid_4 level_" + level + "\" + id=\"" + id + "\">" +
+				"<div class=\"roomblock\">" +
+					"<p>" + name + "</p>" +
+				"</div></div>";
+			$("#browse").html( $("#browse").html() + roomtext );
+			
+			if(venues[i].floors)
+			{
+				addVenues( venues[i].floors, parent = id );
+			}
+			else if( venues[i].rooms )
+			{
+				addVenues( venues[i].rooms, parent = id );
+			}
+			
+			$("#"+id).click( createNavigateToFunction( venues[i] ) )
 		}
 	}
-*/ }
+}
 
 function readyFunction()
 {
 	bindButtons();
-	$.getJSON( BASE_URL, addVenues ); //Adds things to the Browse page.
+	// $.getJSON( BASE_URL, addVenues ); //Adds things to the Browse page.
 }
 
 $(document).ready( readyFunction );
