@@ -28,47 +28,45 @@ function createNavigateToFunction( venue )
 	});
 }
 
-function addVenues( venues, parent ="" ) // I can't do that. There are
-{									// Two potential solutions. The one
-									// I have to employ involves currying.
-		var roomtext = "";
+function addVenues( venues, parent ) 
+{
+	var roomtext = "";
+	
+	for( i in venues )
+	{
+		name = venues[i].name;
+		if ( parent )
+		{ id = parent + "_" + venues[i].id; }
+		else
+		{ id = venues[i].id; }
 		
-		for( i in venues )
+		description = ""
+		if(venues[i].description)
+		{ description = venues[i].description; }
+		
+		roomtext = "<div class=\"grid_4 level_" + level + "\" + id=\"" + id + "\">" +
+			"<div class=\"roomblock\">" +
+				"<p>" + name + "</p>" +
+			"</div></div>";
+		$("#browse").html( $("#browse").html() + roomtext );
+		
+		if(venues[i].floors)
 		{
-			name = venues[i].name;
-			if ( parent )
-			{ id = parent + "_" + venues[i].id; }
-			else
-			{ id = venues[i].id; }
-			
-			description = ""
-			if(venues[i].description)
-			{ description = venues[i].description; }
-			
-			roomtext = "<div class=\"grid_4 level_" + level + "\" + id=\"" + id + "\">" +
-				"<div class=\"roomblock\">" +
-					"<p>" + name + "</p>" +
-				"</div></div>";
-			$("#browse").html( $("#browse").html() + roomtext );
-			
-			if(venues[i].floors)
-			{
-				addVenues( venues[i].floors, parent = id );
-			}
-			else if( venues[i].rooms )
-			{
-				addVenues( venues[i].rooms, parent = id );
-			}
-			
-			$("#"+id).click( createNavigateToFunction( venues[i] ) )
+			addVenues( venues[i].floors, parent = id );
 		}
+		else if( venues[i].rooms )
+		{
+			addVenues( venues[i].rooms, parent = id );
+		}
+		
+		$("#"+id).click( createNavigateToFunction( venues[i] ) )
 	}
 }
 
 function readyFunction()
 {
 	bindButtons();
-	// $.getJSON( BASE_URL, addVenues ); //Adds things to the Browse page.
+	$.getJSON( BASE_URL, function(v){ addVenues( v, "" ); } ); //Adds things to the Browse page.
 }
 
 $(document).ready( readyFunction );
