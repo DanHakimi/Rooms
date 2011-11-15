@@ -42,11 +42,11 @@ function addVenues( venues, parent )
 		
 		description = ""
 		if(venues[i].description)
-		{ description = venues[i].description; }
+		{ description = ": " + venues[i].description; }
 		
 		roomtext = "<div class=\"grid_4 parent_" + parent + "\" + id=\"" + id + "\">" +
 			"<div class=\"roomblock\">" +
-				"<p>" + name + "</p>" +
+				"<p>" + name + description + "</p>" +
 			"</div></div>";
 		$("#browse").html( $("#browse").html() + roomtext );
 		
