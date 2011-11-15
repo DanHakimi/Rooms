@@ -44,7 +44,7 @@ function addVenues( venues, parent )
 		if(venues[i].description)
 		{ description = venues[i].description; }
 		
-		roomtext = "<div class=\"grid_4 level_" + level + "\" + id=\"" + id + "\">" +
+		roomtext = "<div class=\"grid_4 parent_" + parent + "\" + id=\"" + id + "\">" +
 			"<div class=\"roomblock\">" +
 				"<p>" + name + "</p>" +
 			"</div></div>";
