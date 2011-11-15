@@ -1,5 +1,7 @@
 import datetime
 
+from django.core.urlresolvers import reverse
+
 from rooms_project.cas_auth.models import CASUser
 from rooms_project.rooms.models import Room, Floor, Building
 from rooms_project.utils import BaseTestCase
@@ -44,3 +46,45 @@ class ReservationViewTest(BaseTestCase):
                 },
             }
         ])
+
+    def test_reservation_request_create(self):
+        url_name = "api_v1_room_reservation_request_create"
+
+        b = Building.objects.create(name="Union")
+        f = b.floors.create(name="Third")
+        r = f.rooms.create(name="3606")
+
+        response = self.get(url_name, pk=r.pk, status_code=302)
+        self.assertEqual(response["Location"], "http://testserver" + reverse("auth_login"))
+
+        user = CASUser.objects.create(username="gaynoa2")
+        with self.login(user):
+            self.post(url_name, pk=1024, status_code=404, data={})
+
+            response = self.post(url_name, pk=r.pk, data={})
+            self.assert_json_response(response, {
+                "errors": {
+                    "start_time": ["This field is required."],
+                    "end_time": ["This field is required."],
+                }
+            })
+
+            response = self.post(url_name, pk=r.pk, data={
+                "start_time": "2011-11-15 13:40:00",
+                "end_time": "2011-11-15 14:00:00",
+            }, status_code=201)
+            rr = ReservationRequest.objects.get()
+            self.assert_json_response(response, {
+                "id": rr.id,
+                "room": r.to_json(),
+                "status": ReservationRequest.UNREVIEWED,
+                "requestor": user.to_json(),
+                "start_time": "2011-11-15T13:40:00",
+                "end_time": "2011-11-15T14:00:00",
+            })
+            self.assert_attrs(rr,
+                requester=user,
+                reviewer=None,
+                start_time=datetime.datetime(2011, 11, 15, 13, 40),
+                end_time=datetime.datetime(2011, 11, 15, 14),
+            )
