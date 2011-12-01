@@ -88,3 +88,40 @@ class ReservationViewTest(BaseTestCase):
                 start_time=datetime.datetime(2011, 11, 15, 13, 40),
                 end_time=datetime.datetime(2011, 11, 15, 14),
             )
+
+    def test_reservation_pending_list(self):
+        url_name = "api_v1_room_reservation_pending_list"
+
+        b = Building.objects.create(name="Union")
+        f = b.floors.create(name="Third")
+        r = f.rooms.create(name="3606")
+
+        self.get(url_name, pk=r.pk, status_code=302)
+
+        c = CASUser.objects.create(username="t1")
+        t1 = datetime.datetime.today()
+        t2 = datetime.datetime.today() + datetime.timedelta(days=1)
+        rr1 = ReservationRequest.objects.create(
+            status=ReservationRequest.UNREVIEWED,
+            room=r,
+            start_time=t1,
+            end_time=t1,
+            requester=c,
+        )
+        rr2 = ReservationRequest.objects.create(
+            status=ReservationRequest.ACCEPTED,
+            room=r,
+            start_time=t2,
+            end_time=t1,
+            requester=c,
+        )
+
+        with self.login(c):
+            self.get(url_name, pk=r.pk, status_code=302)
+
+        admin = CASUser.objects.create(username="t2", is_admin=True)
+        with self.login(admin):
+            response = self.get(url_name, pk=r.pk)
+            self.assert_json_response(response, [
+                rr1.to_json()
+            ])

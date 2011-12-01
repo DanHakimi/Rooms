@@ -2,7 +2,7 @@ from django.core.urlresolvers import reverse
 from django.shortcuts import get_object_or_404
 from django.views.decorators.http import require_POST
 
-from rooms_project.cas_auth.utils import login_required
+from rooms_project.cas_auth.utils import login_required, admin_required
 from rooms_project.rooms.models import Room
 from rooms_project.utils import JSONResponse
 
@@ -33,3 +33,11 @@ def room_reservation_request_create(request, pk):
         return response
     else:
         return JSONResponse({"errors": form.errors})
+
+@admin_required
+def room_reservation_pending_list(request, pk):
+    room = get_object_or_404(Room, pk=pk)
+    return JSONResponse([
+        room.to_json()
+        for room in room.reservation_requests.filter(status=ReservationRequest.UNREVIEWED)
+    ])
