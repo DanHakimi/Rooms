@@ -1,3 +1,5 @@
+from functools import partial
+
 from django.core.urlresolvers import reverse
 from django.shortcuts import get_object_or_404
 from django.views.decorators.http import require_POST
@@ -40,3 +42,13 @@ def room_reservation_pending_list(request):
         rr.to_json()
         for rr in ReservationRequest.objects.filter(status=ReservationRequest.UNREVIEWED)
     ])
+
+@admin_required
+def _room_reservation_request_set_status(request, pk, new_status):
+    rr = get_object_or_404(ReservationRequest, pk=pk)
+    rr.status = new_status
+    rr.save()
+    return JSONResponse(rr.to_json())
+
+room_reservation_request_accept = partial(_room_reservation_request_set_status, new_status=ReservationRequest.ACCEPTED)
+room_reservation_request_reject = partial(_room_reservation_request_set_status, new_status=ReservationRequest.REJECTED)

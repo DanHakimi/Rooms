@@ -125,3 +125,46 @@ class ReservationViewTest(BaseTestCase):
             self.assert_json_response(response, [
                 rr1.to_json()
             ])
+
+    def test_reservation_accept_reject(self):
+        accept_url_name = "api_v1_room_reservation_request_accept"
+        reject_url_name = "api_v1_room_reservation_request_reject"
+
+        b = Building.objects.create(name="Union")
+        f = b.floors.create(name="Third")
+        r = f.rooms.create(name="3606")
+
+
+        c = CASUser.objects.create(username="t1")
+        t = datetime.datetime.today()
+        rr = ReservationRequest.objects.create(
+            status=ReservationRequest.UNREVIEWED,
+            room=r,
+            start_time=t,
+            end_time=t,
+            requester=c,
+        )
+        self.get(accept_url_name, pk=rr.pk, status_code=302)
+        self.get(reject_url_name, pk=rr.pk, status_code=302)
+        with self.login(c):
+            self.get(accept_url_name, pk=rr.pk, status_code=302)
+            self.get(reject_url_name, pk=rr.pk, status_code=302)
+
+        admin = CASUser.objects.create(username="t2", is_admin=True)
+        with self.login(admin):
+            response = self.get(reject_url_name, pk=rr.pk)
+            rr = ReservationRequest.objects.get(pk=rr.pk)
+            self.assert_json_response(response, rr.to_json())
+            self.assert_attrs(rr, status=ReservationRequest.REJECTED)
+
+            rr = ReservationRequest.objects.create(
+                status=ReservationRequest.UNREVIEWED,
+                room=r,
+                start_time=t,
+                end_time=t,
+                requester=c,
+            )
+            response = self.get(accept_url_name, pk=rr.pk)
+            rr = ReservationRequest.objects.get(pk=rr.pk)
+            self.assert_json_response(response, rr.to_json())
+            self.assert_attrs(rr, status=ReservationRequest.ACCEPTED)
