@@ -23,6 +23,8 @@ class BaseTestCase(TestCase):
         return response
 
     def reload(self, obj):
+        # Some managers can't be accessed via an instance, always go via the
+        # class
         return obj.__class__._default_manager.get(pk=obj.pk)
 
     @contextlib.contextmanager
