@@ -22,6 +22,9 @@ class BaseTestCase(TestCase):
         self.assertEqual(response.status_code, status_code)
         return response
 
+    def reload(self, obj):
+        return obj.__class__._default_manager.get(pk=obj.pk)
+
     @contextlib.contextmanager
     def login(self, user):
         # Copied from TestCase.login

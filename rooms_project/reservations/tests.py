@@ -153,7 +153,7 @@ class ReservationViewTest(BaseTestCase):
         admin = CASUser.objects.create(username="t2", is_admin=True)
         with self.login(admin):
             response = self.get(reject_url_name, pk=rr.pk)
-            rr = ReservationRequest.objects.get(pk=rr.pk)
+            rr = self.reload(rr)
             self.assert_json_response(response, rr.to_json())
             self.assert_attrs(rr, status=ReservationRequest.REJECTED)
 
@@ -165,6 +165,6 @@ class ReservationViewTest(BaseTestCase):
                 requester=c,
             )
             response = self.get(accept_url_name, pk=rr.pk)
-            rr = ReservationRequest.objects.get(pk=rr.pk)
+            rr = self.reload(rr)
             self.assert_json_response(response, rr.to_json())
             self.assert_attrs(rr, status=ReservationRequest.ACCEPTED)
