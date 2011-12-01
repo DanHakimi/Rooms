@@ -96,7 +96,7 @@ class ReservationViewTest(BaseTestCase):
         f = b.floors.create(name="Third")
         r = f.rooms.create(name="3606")
 
-        self.get(url_name, pk=r.pk, status_code=302)
+        self.get(url_name, status_code=302)
 
         c = CASUser.objects.create(username="t1")
         t1 = datetime.datetime.today()
@@ -117,11 +117,11 @@ class ReservationViewTest(BaseTestCase):
         )
 
         with self.login(c):
-            self.get(url_name, pk=r.pk, status_code=302)
+            self.get(url_name, status_code=302)
 
         admin = CASUser.objects.create(username="t2", is_admin=True)
         with self.login(admin):
-            response = self.get(url_name, pk=r.pk)
+            response = self.get(url_name)
             self.assert_json_response(response, [
                 rr1.to_json()
             ])

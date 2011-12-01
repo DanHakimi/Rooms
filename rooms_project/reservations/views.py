@@ -35,9 +35,8 @@ def room_reservation_request_create(request, pk):
         return JSONResponse({"errors": form.errors})
 
 @admin_required
-def room_reservation_pending_list(request, pk):
-    room = get_object_or_404(Room, pk=pk)
+def room_reservation_pending_list(request):
     return JSONResponse([
-        room.to_json()
-        for room in room.reservation_requests.filter(status=ReservationRequest.UNREVIEWED)
+        rr.to_json()
+        for rr in ReservationRequest.objects.filter(status=ReservationRequest.UNREVIEWED)
     ])
