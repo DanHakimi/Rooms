@@ -1,4 +1,5 @@
 from django.core.urlresolvers import reverse
+from django.shortcuts import redirect
 
 from .models import CASUser
 from .pycas import CAS
@@ -9,7 +10,7 @@ class CASMiddleware(object):
         # TODO: move to a setting :(
         request.cas = CAS(
             base_url="https://cas-auth.rpi.edu/cas",
-            service=request.build_absolute_uri("/home.html"),
+            service=request.build_absolute_uri("/"),
         )
         if "ticket" in request.GET:
             ticket = request.GET["ticket"]
@@ -23,6 +24,7 @@ class CASMiddleware(object):
                     del request.session["cas:user"]
                 except KeyError:
                     pass
+            return redirect("home")
         elif "cas:user" in request.session:
             try:
                 request.user = CASUser.objects.get(pk=request.session["cas:user"])

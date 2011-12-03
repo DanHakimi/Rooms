@@ -1,23 +1,53 @@
-<!doctype HTML>
+<!DOCTYPE html>
 <html>
     <head>
-        <title>{% block title %}{% endblock %}</title>
+        <meta charset="utf-8" />
+        <title>RPI Rooms - {% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css" />
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/base.css" />
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}js/bootstrap-dropdown.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                $(".topbar").dropdown();
+            });
+        </script>
     </head>
     <body>
-        <ul>
-            {% if user %}
-                <li>
-                    Hi, {{ user.username }}.
-                </li>
-                <li>
-                    <a href="{% url auth_logout %}">Logout</a>
-                </li>
-            {% else %}
-                <li>
-                    <a href="{% url auth_login %}">Login</a>
-                </li>
-            {% endif %}
-        </ul>
-        {% block body %}{% endblock %}
+        <div class="topbar">
+            <div class="fill">
+                <div class="container">
+                    <h3>
+                        <a href="{% url home %}">RPI Rooms</a>
+                    </h3>
+                    <ul class="secondary-nav">
+                        {% if user %}
+                            <li>
+                                <a href="#" class="menu">{{ user.username }}</a>
+                                <ul class="menu-dropdown">
+                                    <li>
+                                        <a href="{% url auth_logout %}">
+                                            Log out
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        {% else %}
+                            <li><a href="{% url auth_login %}">Log in</a></li>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            {% block body %}{% endblock %}
+        </div>
+        <div id="footer">
+            <div class="inner">
+                <div class="container">
+                    <p>Built by Dan Hakimi and Alex Gaynor.</p>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
