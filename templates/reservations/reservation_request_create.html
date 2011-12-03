@@ -2,6 +2,23 @@
 
 {% block title %}Reserve {{ room.name }}{% endblock %}
 
+{% block extra_head %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/timepicker.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/jquery-ui-1.8.16.custom.css" />
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-ui-1.8.16.custom.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery-ui-timepicker-addon.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            var options = {
+                dateFormat: "yy-mm-dd",
+                timeFormat: "hh:mm:ss"
+            }
+            $("#id_start_time").datetimepicker(options);
+            $("#id_end_time").datetimepicker(options);
+        });
+    </script>
+{% endblock %}
+
 {% block body %}
     <form method="post" action="">
         <fieldset>

@@ -1,7 +1,7 @@
 from functools import partial
 
 from django.core.urlresolvers import reverse
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from django.views.decorators.http import require_POST
 
 from rooms_project.cas_auth.utils import login_required, admin_required
@@ -19,7 +19,11 @@ def room_reservation_request_create(request, pk):
     if request.method == "POST":
         form = RoomReservationRequestForm(request.POST)
         if form.is_valid():
-            raise Exception
+            rr = form.save(commit=False)
+            rr.requester = request.user
+            rr.room = room
+            rr.save()
+            return redirect(rr.room)
     else:
         form = RoomReservationRequestForm()
     return render(request, "reservations/reservation_request_create.html", {

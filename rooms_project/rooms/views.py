@@ -17,6 +17,9 @@ def building_detail(request, pk):
         "building": building,
     })
 
+def room_detail(request, building_pk, room_pk):
+    pass
+
 # API VIEWS
 
 def api_building_list(request):

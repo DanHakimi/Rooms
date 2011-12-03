@@ -56,6 +56,12 @@ class Room(models.Model):
     def __unicode__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse("room_detail", kwargs={
+            "building_pk": self.floor.building.pk,
+            "room_pk": self.pk
+        })
+
     def to_json(self):
         return {
             "id": self.id,
