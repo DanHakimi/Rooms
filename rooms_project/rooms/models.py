@@ -1,8 +1,12 @@
+from django.core.urlresolvers import reverse
 from django.db import models
 
 
 class Building(models.Model):
     name = models.CharField(max_length=255)
+
+    def get_absolute_url(self):
+        return reverse("building_detail", kwargs={"pk": self.pk})
 
     def to_json(self):
         return {
@@ -10,6 +14,10 @@ class Building(models.Model):
             "name": self.name,
             "floors": [floor.to_json() for floor in self.floors.all()],
         }
+
+    def room_count(self):
+        # TODO: O(n) queries, reduce later
+        return sum(f.rooms.count() for f in self.floors.all())
 
 class Floor(models.Model):
     building = models.ForeignKey(Building, related_name="floors")

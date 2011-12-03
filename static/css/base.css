@@ -8,3 +8,23 @@ body {
 #footer p {
     margin-bottom: 0;
 }
+
+.item-block {
+    background: #DDDDDD;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    margin-bottom: 7px;
+}
+
+.item-block .inner {
+    padding-top: 1px;
+    padding-bottom: 3px;
+    padding-left: 10px;
+    padding-right: 5px;
+}
+
+.reserve-button {
+    float: right;
+    margin-top: 4px;
+    margin-right: 4px;
+}

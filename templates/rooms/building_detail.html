@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}{{ building.name }} detail{% endblock %}
+
+{% block body %}
+    <h2>{{ building.name }}</h2>
+    {% for floor in building.floors.all %}
+        <h3>{{ floor.name }} floor</h3>
+        {% for room in floor.rooms.all %}
+            <div class="item-block">
+                <div class="inner">
+                    <a href="{% url room_reservation_request_create pk=room.pk %}" class="btn primary reserve-button">Reserve</a>
+                    <h4>
+                        {{ room.name }}{% if room.nickname %} - {{ room.nickname }}{% endif %}
+                    </h4>
+                    <p>
+                        {{ room.description }}
+                    </p>
+                </div>
+            </div>
+        {% endfor %}
+    {% endfor %}
+{% endblock %}

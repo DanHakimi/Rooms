@@ -6,4 +6,7 @@ from .models import ReservationRequest
 class RoomReservationRequestForm(forms.ModelForm):
     class Meta:
         model = ReservationRequest
-        fields = ["start_time", "end_time"]
+        fields = ["reason", "start_time", "end_time"]
+        widgets = {
+            "reason": forms.Textarea(attrs={"rows": 3, "class": "xxlarge"}),
+        }

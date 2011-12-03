@@ -18,6 +18,7 @@ class ReservationRequest(models.Model):
     status = models.IntegerField(choices=STATUS_CHOICES, default=UNREVIEWED)
     room = models.ForeignKey(Room, related_name="reservation_requests")
 
+    reason = models.TextField(help_text="What the room will be used for.")
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
 
@@ -31,6 +32,7 @@ class ReservationRequest(models.Model):
             "status": self.status,
             "room": self.room.to_json(),
             "requestor": self.requester.to_json(),
+            "reason": self.reason,
             "start_time": self.start_time.isoformat(),
             "end_time": self.end_time.isoformat(),
         }

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Building List{% endblock %}
+
+{% block body %}
+    <h2>Buildings on campus</h2>
+    {% for building in buildings %}
+        <div class="item-block">
+            <div class="inner">
+                <h4>
+                    <a href="{{ building.get_absolute_url }}">
+                        {{ building.name }}
+                    </a>
+                </h4>
+                <p>
+                    {{ building.floors.count }} floors and<br />
+                    {{ building.room_count }} rooms<br />
+                </p>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

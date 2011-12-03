@@ -38,6 +38,7 @@ class ReservationViewTest(BaseTestCase):
                 "id": rr.id,
                 "status": ReservationRequest.ACCEPTED,
                 "room": r.to_json(),
+                "reason": "",
                 "start_time": t.isoformat(),
                 "end_time": t.isoformat(),
                 "requestor": {
@@ -64,12 +65,14 @@ class ReservationViewTest(BaseTestCase):
             response = self.post(url_name, pk=r.pk, data={})
             self.assert_json_response(response, {
                 "errors": {
+                    "reason": ["This field is required."],
                     "start_time": ["This field is required."],
                     "end_time": ["This field is required."],
                 }
             })
 
             response = self.post(url_name, pk=r.pk, data={
+                "reason": "Because",
                 "start_time": "2011-11-15 13:40:00",
                 "end_time": "2011-11-15 14:00:00",
             }, status_code=201)
@@ -79,12 +82,14 @@ class ReservationViewTest(BaseTestCase):
                 "room": r.to_json(),
                 "status": ReservationRequest.UNREVIEWED,
                 "requestor": user.to_json(),
+                "reason": "Because",
                 "start_time": "2011-11-15T13:40:00",
                 "end_time": "2011-11-15T14:00:00",
             })
             self.assert_attrs(rr,
                 requester=user,
                 reviewer=None,
+                reason="Because",
                 start_time=datetime.datetime(2011, 11, 15, 13, 40),
                 end_time=datetime.datetime(2011, 11, 15, 14),
             )
