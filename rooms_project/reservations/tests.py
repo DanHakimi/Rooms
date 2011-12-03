@@ -134,7 +134,6 @@ class ReservationViewTest(BaseTestCase):
         f = b.floors.create(name="Third")
         r = f.rooms.create(name="3606")
 
-
         c = CASUser.objects.create(username="t1")
         t = datetime.datetime.today()
         rr = ReservationRequest.objects.create(
