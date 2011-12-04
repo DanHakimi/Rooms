@@ -1,7 +1,7 @@
 from django.core.urlresolvers import reverse
 from django.shortcuts import redirect
 
-from .models import CASUser
+from .models import CASUser, UnauthenticatedUser
 from .pycas import CAS
 
 
@@ -19,7 +19,7 @@ class CASMiddleware(object):
                 request.user, _ = CASUser.objects.get_or_create(username=info["username"])
                 request.session["cas:user"] = request.user.pk
             else:
-                request.user = None
+                request.user = UnauthenticatedUser()
                 try:
                     del request.session["cas:user"]
                 except KeyError:
@@ -30,6 +30,6 @@ class CASMiddleware(object):
                 request.user = CASUser.objects.get(pk=request.session["cas:user"])
             except CASUser.DoesNotExist:
                 del request.session["cas:user"]
-                request.user = None
+                request.user = UnauthenticatedUser()
         else:
-            request.user = None
+            request.user = UnauthenticatedUser()

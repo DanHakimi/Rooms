@@ -10,3 +10,13 @@ class CASUser(models.Model):
             "id": self.id,
             "username": self.username,
         }
+
+class UnauthenticatedUser(object):
+    def __nonzero__(self):
+        return False
+
+    def is_authenticated(self):
+        return False
+
+    def get_and_delete_messages(self):
+        return []
