@@ -74,6 +74,17 @@ class ReservationViewTest(BaseTestCase):
             response = self.post(url_name, pk=r.pk, data={
                 "reason": "Because",
                 "start_time": "2011-11-15 13:40:00",
+                "end_time": "2011-11-14 13:40:00",
+            })
+            self.assert_json_response(response, {
+                "errors": {
+                    "end_time": ["End time must be after start time."]
+                }
+            })
+
+            response = self.post(url_name, pk=r.pk, data={
+                "reason": "Because",
+                "start_time": "2011-11-15 13:40:00",
                 "end_time": "2011-11-15 14:00:00",
             }, status_code=201)
             rr = ReservationRequest.objects.get()
