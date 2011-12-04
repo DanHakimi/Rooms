@@ -8,6 +8,7 @@ from . import views
 
 urlpatterns = patterns('',
     url(r"^$", views.home, name="home"),
+    url(r"^about/$", views.about, name="about"),
     url(r"^user/", include("rooms_project.cas_auth.urls")),
     url(r"", include("rooms_project.rooms.urls")),
     url(r"", include("rooms_project.reservations.urls")),
