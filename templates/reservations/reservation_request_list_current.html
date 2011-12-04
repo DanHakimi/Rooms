@@ -24,6 +24,14 @@
                     <td>
                         {% if reservation.status == reservation.UNREVIEWED %}
                             <span class="label">Unreviewed</span>
+                        {% else %}
+                            {% if reservation.status == reservation.ACCEPTED %}
+                                <span class="label success">Accepted</span>
+                            {% else %}
+                                {% if reservation.status == reservation.REJECTED %}
+                                    <span class="label important">Rejected</span>
+                                {% endif %}
+                            {% endif %}
                         {% endif %}
                     </td>
                 </tr>
