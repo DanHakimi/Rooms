@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}My Reservations{% endblock %}
+
+{% block body %}
+    <h2>My Reservations</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Reason</th>
+                <th>Start time</th>
+                <th>End time</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reservation in reservations %}
+                <tr>
+                    <td>{{ reservation.reason }}</td>
+                    <td>{{ reservation.start_time }}</td>
+                    <td>{{ reservation.end_time }}</td>
+                    <td>
+                        {% if reservation.status == reservation.UNREVIEWED %}
+                            <span class="label">Unreviewed</span>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    <table>
+{% endblock %}

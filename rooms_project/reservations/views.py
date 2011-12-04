@@ -15,6 +15,12 @@ from .models import ReservationRequest
 # HTML VIEWS
 
 @login_required
+def room_reservation_request_list_current(request):
+    return render(request, "reservations/reservation_request_list_current.html", {
+        "reservations": request.user.room_requests.order_by("start_time")
+    })
+
+@login_required
 def room_reservation_request_create(request, pk):
     room = get_object_or_404(Room, pk=pk)
     if request.method == "POST":

@@ -4,6 +4,7 @@ from . import views
 
 
 urlpatterns = patterns("",
+    url(r"^resertvations/$", views.room_reservation_request_list_current, name="room_reservation_request_list_current"),
     url(r"^reservations/room/(?P<pk>\d+)/create/$", views.room_reservation_request_create, name="room_reservation_request_create"),
     url(r"^api/v1/", include(patterns("",
         url(r"^reservations/room/(?P<pk>\d+)/$", views.api_room_reservation_list, name="api_v1_room_reservation_list"),
