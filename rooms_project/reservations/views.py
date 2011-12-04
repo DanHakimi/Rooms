@@ -43,6 +43,21 @@ def room_reservation_request_create(request, pk):
         "form": form,
     })
 
+@admin_required
+def room_reservation_pending_list(request):
+    return render(request, "reservations/reservation_pending_list.html", {
+        "reservations": ReservationRequest.objects.filter(status=ReservationRequest.UNREVIEWED).order_by("start_time")
+    })
+
+@admin_required
+@require_POST
+def _room_reservation_request_set_status(request, pk, new_status):
+    rr = get_object_or_404(ReservationRequest, pk=pk)
+    rr.status = new_status
+    rr.save()
+    return redirect("room_reservation_pending_list")
+room_reservation_request_accept = partial(_room_reservation_request_set_status, new_status=ReservationRequest.ACCEPTED)
+room_reservation_request_reject = partial(_room_reservation_request_set_status, new_status=ReservationRequest.REJECTED)
 
 # API VIEWS
 

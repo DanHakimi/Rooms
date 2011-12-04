@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Admin{% endblock %}
+
+{% block body %}
+    <h2>Admin</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Room</th>
+                <th>Reason</th>
+                <th>Start time</th>
+                <th>End time</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reservation in reservations %}
+                <tr>
+                    <td>{{ reservation.room }} ({{ reservation.room.floor.building }})</td>
+                    <td>{{ reservation.reason }}</td>
+                    <td>{{ reservation.start_time }}</td>
+                    <td>{{ reservation.end_time }}</td>
+                    <td>
+                        <form method="post" action="{% url room_reservation_request_accept pk=reservation.pk %}">
+                            {% csrf_token %}
+                            <input type="submit" class="btn success" value="Accept" />
+                        </form>
+                        <form method="post" action="{% url room_reservation_request_reject pk=reservation.pk %}">
+                            {% csrf_token %}
+                            <input type="submit" class="btn danger" value="Reject" />
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

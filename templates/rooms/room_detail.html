@@ -6,7 +6,13 @@
     <h2>{{ room.name }}</h2>
     <a href="{% url room_reservation_request_create pk=room.pk %}" class="btn primary reserve-button">Reserve</a>
     <h3>Upcoming events</h3>
-    {% for rr in room.approved_reservations %}
+    {% for rr in room.upcoming_reservations %}
+        <div class="item-block">
+            <div class="inner">
+                <h5>{{ rr.start_time }} - {{ rr.end_time }}</h5>
+                <p>{{ rr.reason }}</p>
+            </div>
+        </div>
     {% empty %}
         <p>No upcoming events</p>
     {% endfor %}

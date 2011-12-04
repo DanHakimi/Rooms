@@ -1,9 +1,14 @@
+from datetime import datetime
+
 from django.core.urlresolvers import reverse
 from django.db import models
 
 
 class Building(models.Model):
     name = models.CharField(max_length=255)
+
+    def __unicode__(self):
+        return self.name
 
     def get_absolute_url(self):
         return reverse("building_detail", kwargs={"pk": self.pk})
@@ -70,3 +75,11 @@ class Room(models.Model):
             "description": self.description,
             "capacity": self.capacity,
         }
+
+    def upcoming_reservations(self):
+        from rooms_project.reservations.models import ReservationRequest
+        return self.reservation_requests.filter(
+            status=ReservationRequest.ACCEPTED
+        ).filter(
+            end_time__gt=datetime.now()
+        )

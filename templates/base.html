@@ -29,6 +29,9 @@
                     </ul>
                     <ul class="secondary-nav">
                         {% if user %}
+                            {% if user.is_admin %}
+                                <li><a href="{% url room_reservation_pending_list %}">Admin</a>
+                            {% endif %}
                             <li>
                                 <a href="#" class="menu">{{ user.username }}</a>
                                 <ul class="menu-dropdown">
