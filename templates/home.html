@@ -3,5 +3,15 @@
 {% block title %}Home{% endblock %}
 
 {% block body %}
-    <h2>Reserve rooms on campus, quickly.</h2>
+    <div class="main-block">
+        <h1>RPI Rooms</h1>
+        <p>
+            The best way to reserve a room on campus.  Period.
+        </p>
+        <p>
+            <a class="btn primary large" href="{% url building_list %}">
+                Find a room now »
+            </a>
+        </p>
+    </div>
 {% endblock %}

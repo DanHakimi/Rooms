@@ -1,5 +1,10 @@
 body {
     padding-top: 80px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    line-height: 18px;
+    color: #404040;
 }
 
 #footer {
@@ -7,6 +12,28 @@ body {
 }
 #footer p {
     margin-bottom: 0;
+}
+
+.main-block {
+    background-color: #DDDDDD;
+    margin-bottom: 30px;
+    padding: 60px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+}
+
+.main-block h1 {
+    margin-bottom: 0px;
+    font-size: 60px;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.main-block p {
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 27px;
 }
 
 .item-block {
