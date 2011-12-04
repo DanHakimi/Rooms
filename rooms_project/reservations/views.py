@@ -1,6 +1,7 @@
 from functools import partial
 
 from django.core.urlresolvers import reverse
+from django.contrib import messages
 from django.shortcuts import get_object_or_404, render, redirect
 from django.views.decorators.http import require_POST
 
@@ -23,7 +24,12 @@ def room_reservation_request_create(request, pk):
             rr.requester = request.user
             rr.room = room
             rr.save()
+            messages.success(request, "Reservation request created, it's been "
+                "sent to the administrator for approval.")
             return redirect(rr.room)
+        else:
+            messages.error(request, "There were some errors submitting your "
+                "form, please correct them and resubmit it.")
     else:
         form = RoomReservationRequestForm()
     return render(request, "reservations/reservation_request_create.html", {

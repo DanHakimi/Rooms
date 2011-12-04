@@ -109,11 +109,14 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     'django.core.context_processors.i18n',
     'django.core.context_processors.media',
     'django.core.context_processors.static',
+    "django.contrib.messages.context_processors.messages",
 
     'rooms_project.cas_auth.context_processors.cas_context_processor',
 ]
 
 ROOT_URLCONF = 'rooms_project.urls'
+
+MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
 TEMPLATE_DIRS = [
     os.path.join(PROJECT_ROOT, "templates"),
@@ -122,7 +125,8 @@ TEMPLATE_DIRS = [
 INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.staticfiles',
-    
+    'django.contrib.messages',
+
     'django_extensions',
 
     'fixture_generator',

@@ -11,7 +11,9 @@
                 <div class="inner">
                     <a href="{% url room_reservation_request_create pk=room.pk %}" class="btn primary reserve-button">Reserve</a>
                     <h4>
-                        {{ room.name }}{% if room.nickname %} - {{ room.nickname }}{% endif %}
+                        <a href="{{ room.get_absolute_url }}">
+                            {{ room.name }}{% if room.nickname %} - {{ room.nickname }}{% endif %}
+                        </a>
                     </h4>
                     <p>
                         {{ room.description }}

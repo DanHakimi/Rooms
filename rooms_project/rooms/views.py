@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404, render
 
 from rooms_project.utils import JSONResponse
 
-from .models import Building
+from .models import Building, Room
 
 # HTML VIEWS
 
@@ -18,7 +18,10 @@ def building_detail(request, pk):
     })
 
 def room_detail(request, building_pk, room_pk):
-    pass
+    room = get_object_or_404(Room, pk=room_pk, floor__building__pk=building_pk)
+    return render(request, "rooms/room_detail.html", {
+        "room": room,
+    })
 
 # API VIEWS
 

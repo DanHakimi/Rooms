@@ -7,9 +7,11 @@
         <link rel="stylesheet" href="{{ STATIC_URL }}css/base.css" />
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <script type="text/javascript" src="{{ STATIC_URL }}js/bootstrap-dropdown.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}js/bootstrap-alerts.js"></script>
         <script type="text/javascript">
             $(function() {
                 $(".topbar").dropdown();
+                $(".alert-message").alert();
             });
         </script>
         {% block extra_head %}{% endblock %}
@@ -44,6 +46,12 @@
             </div>
         </div>
         <div class="container">
+            {% for message in messages %}
+                <div class="alert-message{% if message.tags %} {{ message.tags }}{% endif %}">
+                    <a class="close" href="#">×</a>
+                    <p>{{ message }}</p>
+                </div>
+            {% endfor %}
             {% block body %}{% endblock %}
         </div>
         <div id="footer">
