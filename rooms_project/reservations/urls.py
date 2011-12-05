@@ -4,7 +4,7 @@ from . import views
 
 
 urlpatterns = patterns("",
-    url(r"^resertvations/$", views.room_reservation_request_list_current, name="room_reservation_request_list_current"),
+    url(r"^reservations/$", views.room_reservation_request_list_current, name="room_reservation_request_list_current"),
     url(r"^reservations/room/(?P<pk>\d+)/create/$", views.room_reservation_request_create, name="room_reservation_request_create"),
     url(r"^reservations/pending/$", views.room_reservation_pending_list, name="room_reservation_pending_list"),
     url(r"^reservations/(?P<pk>\d+)/accept/$", views.room_reservation_request_accept, name="room_reservation_request_accept"),
